@@ -35,6 +35,7 @@ export class FindCar {
   pouch: any;
   rendered: boolean = false;
   centreBounds: any;
+  distance: number;
 
   constructor(
     public navCtrl: NavController,
@@ -145,9 +146,11 @@ export class FindCar {
         this.carMarker = L.marker(this.carLatLng, {icon: this.carIcon})
           // .addTo(this.map)
           .bindPopup('Your car is here!')
-        // draw line fron car to user
+        // draw line fron car to user and measure the distance
         let polyline = L.polyline([this.carLatLng, this.userLatLng])
           .addTo(this.map);
+        this.distance = this.carLatLng.distanceTo(this.userLatLng).toFixed(2);
+// console.log('distance -', this.distance)
         // put markers in a feature group
         let markerGroup = L.featureGroup([this.carMarker, this.userMarker])
           .addTo(this.map);

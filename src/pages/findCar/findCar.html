@@ -15,7 +15,7 @@
   <ion-card>
     <div id="findCarMap"><!-- Map is inserted here  --></div>
   </ion-card>
-  <ion-card id="distance">
-    Distance to car - {{diatance}}
+  <ion-card id="distance" *ngIf="rendered">
+    <p>Distance to car - {{distance}}m</p>
   </ion-card>
 </ion-content>

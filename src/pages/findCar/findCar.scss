@@ -10,4 +10,17 @@ page-findCar {
     }
   }
 
+  #distance {
+    p {
+      position: absolute;
+      z-index: 999;
+      top: 70vh;
+      left: 5vw;
+      background-color: color($colors, white, base);
+      color: color($colors, primary, base);
+      border: 1px solid color($colors, primary, base);;
+      border-radius: 5px;
+      padding: 5px;
+    }
+  }
 }
