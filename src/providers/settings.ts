@@ -14,7 +14,7 @@ export class SettingsProvider {
   /** Other settings */
 
   // Development stuff
-  versionNumber: string = '0.0.3';
+  versionNumber: string = '0.0.4';
 
   constructor() {
   }

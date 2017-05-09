@@ -7,12 +7,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-fab right top>
+  <ion-fab *ngIf="rendered" right top>
     <button ion-fab mini (click)="centreMap()">
       <ion-icon name="resize"></ion-icon>
     </button>
   </ion-fab>
   <ion-card>
     <div id="findCarMap"><!-- Map is inserted here  --></div>
+  </ion-card>
+  <ion-card id="distance">
+    Distance to car - {{diatance}}
   </ion-card>
 </ion-content>

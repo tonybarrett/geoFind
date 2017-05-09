@@ -33,6 +33,8 @@ export class FindCar {
   mapAccessToken: string;
   versionNumber: string;
   pouch: any;
+  rendered: boolean = false;
+  centreBounds: any;
 
   constructor(
     public navCtrl: NavController,
@@ -61,7 +63,7 @@ export class FindCar {
   ionViewDidEnter() {
     let locationNotSavedAlert = this.alertCtrl.create({
       title: 'Car location not saved',
-      subTitle: 'Go to other screen to save one',
+      subTitle: 'Return to "Save Location" screen to save one',
       buttons: [
         {
           text: 'OK',
@@ -128,7 +130,7 @@ export class FindCar {
             iconAnchor: [12, 45]
         });
         this.userMarker = L.marker(this.userLatLng, {icon: this.userIcon})
-          .addTo(this.map)
+          // .addTo(this.map)
           .bindPopup('Present location')
 // console.log('lat -', this.carLat)
 // console.log('lng -', this.carLng)
@@ -141,12 +143,16 @@ export class FindCar {
             iconAnchor: [23, 45]
         });
         this.carMarker = L.marker(this.carLatLng, {icon: this.carIcon})
-          .addTo(this.map)
+          // .addTo(this.map)
           .bindPopup('Your car is here!')
         // draw line fron car to user
         let polyline = L.polyline([this.carLatLng, this.userLatLng])
           .addTo(this.map);
-
+        // put markers in a feature group
+        let markerGroup = L.featureGroup([this.carMarker, this.userMarker])
+          .addTo(this.map);
+        this.centreBounds = markerGroup.getBounds();
+        this.rendered = true;
         buildingMapSpinner.dismiss();
       });
     } else {
@@ -155,7 +161,7 @@ export class FindCar {
   }
 
   centreMap() {
-    alert('centre')
+    this.map.fitBounds(this.centreBounds);
   }
 
 }
