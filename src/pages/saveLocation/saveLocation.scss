@@ -1,7 +1,18 @@
 page-saveLocation {
   #saveLocationMap {
     width: 100vw;
-    height: 68vh;
+    height: 80vh;
+  }
+
+  #buttonDiv {
+    text-align: center;
+    width: 100vw;
+    position: absolute;
+    z-index: 9999;
+    top: 65vh;
+    button {
+      background-color: color($colors, white, base);
+    }
   }
 
 }

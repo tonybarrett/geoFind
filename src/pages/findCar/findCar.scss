@@ -1,6 +1,6 @@
 page-findCar {
   #findCarMap {
-    height: 80vh;
+    height: 75vh;
     width: 100vw;
   }
 
@@ -13,8 +13,8 @@ page-findCar {
   #distance {
     p {
       position: absolute;
-      z-index: 999;
-      top: 70vh;
+      z-index: 9999;
+      top: 64vh;
       left: 5vw;
       background-color: color($colors, white, base);
       color: color($colors, primary, base);
